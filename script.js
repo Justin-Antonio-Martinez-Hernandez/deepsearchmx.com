@@ -1,18 +1,16 @@
-// intro animation
-setTimeout(()=>{
-  document.getElementById("intro").style.display="none";
-  document.getElementById("main").style.display="block";
-},4000);
+// Configuration for Google Client ID
+const googleClientId = '1060237405695-v3sgkhm66lcbeshb7tq21cs46ih8epiv.apps.googleusercontent.com';
 
-// expand news
-function expandir(card){
+// EmailJS configuration
+const emailJsConfig = {
+    service_id: 'service_n844fiv',
+    template_id: 'template_a6qb2tb',
+    public_key: 'yTowpQuz0iMmDl3'
+};
 
-  let contenido = card.querySelector(".contenido");
+// Initialize EmailJS
+(emailJS) => {
+    emailJS.init(emailJsConfig.public_key);
+};
 
-  if(contenido.classList.contains("abierto")){
-    contenido.classList.remove("abierto");
-  }else{
-    contenido.classList.add("abierto");
-  }
-
-}
+// Your existing code here...
