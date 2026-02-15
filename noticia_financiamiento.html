@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Financiamiento energético | El Abismo</title>
 
-<!-- FUENTES -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
+
 /* ===== RESET ===== */
 *{
   margin:0;
@@ -18,7 +19,7 @@
 }
 
 body{
-  background:#020617;
+  background:linear-gradient(180deg,#1a0f00,#0a0500);
   color:white;
   overflow-x:hidden;
 }
@@ -26,175 +27,270 @@ body{
 /* ===== HEADER ===== */
 header{
   padding:20px 40px;
-  background:#00000055;
-  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(8px);
   position:sticky;
   top:0;
   z-index:1000;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  border-bottom:2px solid #ffae00;
 }
 
 .logo{
-  color:#4da6ff;
+  color:#ffae00;
   font-size:28px;
   font-weight:bold;
+  letter-spacing:2px;
 }
 
-/* ===== SECCIÓN ===== */
-.section{
-  padding:50px 20px;
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
+  transition:0.3s;
 }
 
-h1{
+nav a:hover{
+  color:#ffae00;
+}
+
+/* ===== HERO ===== */
+.hero{
+  height:420px;
+  background:url("https://images.unsplash.com/photo-1509395176047-4a66953fd231") center/cover no-repeat;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding:40px;
+  position:relative;
+}
+
+.hero h1{
   font-family:'Montserrat', sans-serif;
-  font-size:36px;
-  color:#4da6ff;
-  margin-bottom:30px;
-  text-align:center;
+  font-size:40px;
+  background:rgba(0,0,0,0.7);
+  padding:20px 30px;
+  border-radius:12px;
+  animation:fadeIn 2s ease forwards;
+  opacity:0;
 }
 
-/* ===== CONTENIDO ===== */
+@keyframes fadeIn{
+  to{opacity:1;}
+}
+
+/* ===== SECTION ===== */
+.section{
+  padding:60px 20px;
+  max-width:1000px;
+  margin:auto;
+}
+
 .card{
-  background:#0f172a;
-  padding:25px;
-  margin:20px auto;
-  border-radius:10px;
-  transition:0.4s;
-  max-width:900px;
-  opacity:0;
+  background:#1c0f00;
+  border-left:6px solid #ff7300;
+  padding:30px;
+  margin-bottom:40px;
+  border-radius:15px;
+  box-shadow:0 0 25px rgba(255,115,0,0.2);
   transform:translateY(40px);
+  opacity:0;
+  transition:0.8s ease;
 }
 
 .card.show{
-  opacity:1;
   transform:translateY(0);
+  opacity:1;
 }
 
 .card:hover{
-  background:#1e293b;
-  transform:scale(1.03);
+  transform:scale(1.02);
 }
 
-/* ===== IMAGES ===== */
+.card h2{
+  color:#ffae00;
+  margin-bottom:15px;
+}
+
+.card p{
+  margin-bottom:15px;
+  line-height:1.7;
+  color:#eee;
+}
+
 .card img{
   width:100%;
-  border-radius:10px;
+  border-radius:12px;
   margin-top:15px;
   transition:0.5s;
 }
 
 .card img:hover{
   transform:scale(1.05);
-  filter: brightness(1.1);
+  filter:brightness(1.1);
 }
 
-/* ===== BOTÓN ===== */
+/* ===== PROGRESS BAR ===== */
+.progress-container{
+  margin:30px 0;
+}
+
+.progress-bar{
+  width:0%;
+  height:20px;
+  background:linear-gradient(90deg,#ff7300,#ffae00);
+  border-radius:20px;
+  transition:2s;
+}
+
+/* ===== BUTTON ===== */
 .btn{
-  background:#4da6ff;
-  padding:12px 25px;
+  display:inline-block;
+  margin-top:40px;
+  padding:14px 30px;
+  background:#ff7300;
   color:white;
   text-decoration:none;
-  border-radius:8px;
-  font-weight:600;
-  display:inline-block;
-  margin:30px 20px 0;
+  border-radius:10px;
+  font-weight:bold;
   transition:0.3s;
 }
 
 .btn:hover{
-  background:#1b6ed6;
+  background:#ffae00;
   transform:translateY(-3px);
 }
 
 /* ===== FOOTER ===== */
 footer{
   text-align:center;
-  padding:30px;
-  color:#777;
-  border-top:1px solid #1e3a5f;
+  padding:40px;
+  border-top:1px solid #ff7300;
   margin-top:50px;
+  color:#aaa;
 }
 
-/* ===== ANIMACIONES ===== */
+canvas{
+  margin-top:20px;
+  background:#140a00;
+  padding:15px;
+  border-radius:15px;
+}
+
 </style>
 </head>
 <body>
 
 <header>
   <div class="logo">EL ABISMO</div>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="noticias.html">Noticias</a>
+  </nav>
 </header>
 
+<section class="hero">
+  <h1>Financiamiento energético: ¿Estamos invirtiendo lo suficiente?</h1>
+</section>
+
 <div class="section">
-  <h1>ODS 7: Financiamiento energético y avances globales</h1>
 
-  <!-- TARJETA 1 -->
-  <div class="card">
-    <h2>¿Qué es el ODS 7?</h2>
-    <p>
-      El **Objetivo de Desarrollo Sostenible 7** de la ONU busca garantizar el acceso universal a una <b>energía asequible, fiable, sostenible y moderna para todos</b> antes de 2030. Esto incluye electricidad, cocinas limpias y energías renovables.
-    </p>
-    <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231" alt="Electricidad mundial">
-  </div>
+<div class="card">
+<h2>ODS 7 y la brecha financiera</h2>
+<p>
+El Objetivo de Desarrollo Sostenible 7 plantea garantizar energía asequible y sostenible para todos antes de 2030. Sin embargo, lograr esta meta requiere inversiones masivas en infraestructura eléctrica, energías renovables y tecnologías limpias.
+</p>
+<p>
+En 2023, los flujos financieros internacionales destinados a energía limpia en países en desarrollo alcanzaron aproximadamente 21,6 mil millones de dólares. Aunque representa un aumento del 27 % respecto al año anterior, sigue siendo insuficiente frente a las necesidades reales.
+</p>
+<img src="https://images.unsplash.com/photo-1509395062183-67c5ad6faff9">
+</div>
 
-  <!-- TARJETA 2 -->
-  <div class="card">
-    <h2>Estadísticas actuales</h2>
-    <p>
-      🌍 En 2023, alrededor del <b>92 % de la población mundial tenía acceso a electricidad</b>, pero más de <b>666 millones de personas aún carecían de este servicio</b>.
-    </p>
-    <p>
-      🍳 El acceso a <b>tecnologías de cocina limpia</b> también ha aumentado, alcanzando cerca del 74 %.
-    </p>
-    <p>
-      🔋 La proporción de energías renovables en el consumo total sigue creciendo, especialmente en electricidad.
-    </p>
-    <img src="https://images.unsplash.com/photo-1581091012184-8d6e82a6d5dd" alt="Paneles solares y turbinas eólicas">
-  </div>
+<div class="card">
+<h2>Acceso desigual a la energía</h2>
+<p>
+Más de 660 millones de personas aún viven sin electricidad. Además, alrededor del 74 % de la población mundial tiene acceso a tecnologías de cocina limpia, lo que significa que millones todavía dependen de combustibles contaminantes.
+</p>
+<p>
+La mayor parte de esta brecha se concentra en África Subsahariana y comunidades rurales aisladas, donde la inversión en infraestructura es limitada.
+</p>
+<img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e">
+</div>
 
-  <!-- TARJETA 3 -->
-  <div class="card">
-    <h2>Financiamiento e inversiones</h2>
-    <p>
-      💰 En 2023, los flujos financieros internacionales para energía limpia en países en desarrollo alcanzaron unos <b>21,6 mil millones de dólares</b>, un aumento del 27 % respecto al año anterior, pero aún por debajo de lo necesario para alcanzar las metas globales.
-    </p>
-    <p>
-      📈 A pesar de los esfuerzos, se considera que las inversiones deben crecer mucho más para que el mundo pueda lograr el ODS 7 antes de 2030.
-    </p>
-    <img src="https://images.unsplash.com/photo-1554475901-4538ddfbccc2" alt="Proyectos de energía renovable">
-  </div>
+<div class="card">
+<h2>Progreso hacia 2030</h2>
+<p>Avance global hacia acceso universal a electricidad:</p>
 
-  <!-- TARJETA 4 -->
-  <div class="card">
-    <h2>Desafíos y brechas</h2>
-    <p>
-      ⚠️ Gran parte de las personas sin acceso a electricidad se encuentra en <b>África Subsahariana</b>, donde la falta de infraestructura hace más difícil cerrar la brecha energética.
-    </p>
-    <p>
-      🌱 Además, aunque las energías renovables están creciendo rápidamente, se necesita acelerar su despliegue en sectores como el transporte y la calefacción.
-    </p>
-    <img src="https://images.unsplash.com/photo-1493238792000-8113da705763" alt="Pueblo rural sin acceso a electricidad">
-  </div>
+<div class="progress-container">
+  <div class="progress-bar" id="progressBar"></div>
+</div>
 
-  <!-- BOTÓN VOLVER -->
-  <a href="noticias.html" class="btn">← Volver a Noticias</a>
+<p>
+Actualmente el mundo se encuentra alrededor del 92 % de cobertura eléctrica global. Para alcanzar el 100 % antes de 2030, el ritmo de expansión debe acelerarse considerablemente.
+</p>
+
+<canvas id="energyChart"></canvas>
+</div>
+
+<a href="noticias.html" class="btn">← Volver a Noticias</a>
+
 </div>
 
 <footer>
-© 2026 EL ABISMO | Periodismo de investigación energética
+© 2026 EL ABISMO | Análisis energético global
 </footer>
 
 <script>
-// ===== ANIMACIÓN AL SCROLL =====
+
+/* Scroll Animation */
 const cards = document.querySelectorAll('.card');
 window.addEventListener('scroll', () => {
-  const limit = window.pageYOffset + window.innerHeight - 50;
-  cards.forEach(card => {
-    if (limit > card.offsetTop) {
+  const trigger = window.innerHeight - 100;
+  cards.forEach(card=>{
+    const top = card.getBoundingClientRect().top;
+    if(top < trigger){
       card.classList.add('show');
     }
   });
+});
+
+/* Progress Animation */
+window.addEventListener('load', ()=>{
+  document.getElementById("progressBar").style.width = "92%";
+});
+
+/* Chart */
+const ctx = document.getElementById('energyChart');
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['2010','2015','2020','2023'],
+    datasets: [{
+      label: 'Acceso mundial a electricidad (%)',
+      data: [84,87,90,92],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins:{
+      legend:{
+        labels:{ color:'white' }
+      }
+    },
+    scales:{
+      y:{
+        ticks:{ color:'white' },
+        beginAtZero:true,
+        max:100
+      },
+      x:{
+        ticks:{ color:'white' }
+      }
+    }
+  }
 });
 </script>
 
