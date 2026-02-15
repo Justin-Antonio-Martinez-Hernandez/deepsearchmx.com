@@ -3,62 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>El Abismo | Noticias</title>
+<title>El Abismo | Noticias ODS 7</title>
 
 <style>
+
+/* ===== RESET ===== */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:"Segoe UI",Arial,sans-serif;
+font-family:Segoe UI, Arial;
 }
 
 body{
-background:#0a0f1c;
+background:linear-gradient(180deg,#0a0f1c,#050814);
 color:white;
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 
 header{
 background:#081427;
-padding:15px 40px;
+padding:20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-border-bottom:1px solid #1e3a5f;
+border-bottom:2px solid #4da6ff;
 }
 
-.logo-header{
-font-size:28px;
+.logo{
+font-size:30px;
 font-weight:bold;
 color:#4da6ff;
 }
 
 nav a{
+color:white;
 margin:0 15px;
 text-decoration:none;
-color:white;
+font-size:16px;
 }
 
 nav a:hover{
 color:#4da6ff;
 }
 
-/* TITLE */
+/* ===== TITLE ===== */
 
-.title-section{
-padding:40px;
+.title{
 text-align:center;
+padding:40px;
 }
 
-.title-section h1{
+.title h1{
 font-size:42px;
 color:#4da6ff;
 }
 
-/* CONTAINER */
+.title p{
+color:#aaa;
+}
+
+/* ===== CONTAINER ===== */
 
 .container{
 max-width:1000px;
@@ -66,69 +73,75 @@ margin:auto;
 padding:20px;
 }
 
-/* CATEGORY */
+/* ===== CARD ===== */
 
-.category{
-margin-bottom:50px;
-}
-
-.category h2{
-border-left:5px solid #4da6ff;
-padding-left:10px;
-margin-bottom:20px;
-color:#4da6ff;
-}
-
-/* CARD */
-
-.news-link{
-text-decoration:none;
-color:white;
-}
-
-.news-card{
+.card{
 background:#111a2e;
-padding:20px;
-margin-bottom:20px;
-border-radius:10px;
+border-radius:12px;
+margin-bottom:25px;
+overflow:hidden;
 transition:0.3s;
+border:1px solid #1e3a5f;
 }
 
-.news-card:hover{
-background:#162544;
-transform:scale(1.02);
+.card:hover{
+transform:scale(1.03);
+border-color:#4da6ff;
 }
 
-.news-image{
+/* ===== IMAGE ===== */
+
+.card img{
 width:100%;
 height:220px;
 object-fit:cover;
-border-radius:10px;
-margin-bottom:15px;
 }
 
-.news-title{
+/* ===== CONTENT ===== */
+
+.card-content{
+padding:20px;
+}
+
+.card-title{
 font-size:22px;
-margin-bottom:5px;
+color:#4da6ff;
+margin-bottom:10px;
 }
 
-.news-date{
+.card-date{
 color:#888;
 margin-bottom:10px;
 }
 
-.news-preview{
-color:#bbb;
+.card-text{
+color:#ccc;
+margin-bottom:15px;
 }
 
-/* FOOTER */
+/* ===== BUTTON ===== */
+
+.btn{
+background:#4da6ff;
+color:white;
+padding:10px 20px;
+text-decoration:none;
+border-radius:6px;
+display:inline-block;
+}
+
+.btn:hover{
+background:#3399ff;
+}
+
+/* ===== FOOTER ===== */
 
 footer{
-background:#050a14;
-padding:20px;
 text-align:center;
-color:#888;
+padding:30px;
+color:#777;
 margin-top:40px;
+border-top:1px solid #1e3a5f;
 }
 
 </style>
@@ -138,133 +151,179 @@ margin-top:40px;
 
 <header>
 
-<div class="logo-header">EL ABISMO</div>
+<div class="logo">
+EL ABISMO
+</div>
 
 <nav>
 <a href="index.html">Inicio</a>
 <a href="noticias.html">Noticias</a>
+<a href="contacto.html">Contacto</a>
 </nav>
 
 </header>
 
-<section class="title-section">
+<section class="title">
 
 <h1>Noticias ODS 7</h1>
-<p>Energía, sostenibilidad y desarrollo global</p>
+
+<p>Energía asequible y no contaminante</p>
 
 </section>
 
 <div class="container">
 
-<!-- PRINCIPAL -->
+<!-- NOTICIA 1 -->
 
-<div class="category">
+<div class="card">
 
-<h2>Principal</h2>
+<img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231">
 
-<a href="noticia_ods7.html" class="news-link">
-<div class="news-card">
+<div class="card-content">
 
-<img src="img/energia.jpg" class="news-image">
-
-<div class="news-title">
-Más de 660 millones viven sin electricidad
+<div class="card-title">
+660 millones de personas aún viven sin electricidad
 </div>
 
-<div class="news-date">
-20 mayo 2025
+<div class="card-date">
+ONU — Informe ODS 2025
 </div>
 
-<div class="news-preview">
-La ONU advierte que el progreso energético global es insuficiente.
-</div>
+<div class="card-text">
+
+A pesar de los avances globales, millones siguen sin acceso a energía básica, afectando su calidad de vida.
 
 </div>
+
+<a href="noticia_ods7.html" class="btn">
+Leer noticia
 </a>
 
 </div>
-
-<!-- INTERNACIONAL -->
-
-<div class="category">
-
-<h2>Internacional</h2>
-
-<a href="noticia_cocina.html" class="news-link">
-<div class="news-card">
-
-<img src="img/cocina.jpg" class="news-image">
-
-<div class="news-title">
-74% del mundo tiene acceso a cocina limpia
 </div>
 
-<div class="news-date">
-14 julio 2025
+<!-- NOTICIA 2 -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e">
+
+<div class="card-content">
+
+<div class="card-title">
+74% de la población tiene acceso a cocina limpia
 </div>
 
-<div class="news-preview">
-Aún millones dependen de combustibles contaminantes.
+<div class="card-date">
+ONU — Informe Energético
 </div>
 
-</div>
-</a>
+<div class="card-text">
 
-<a href="noticia_renovable.html" class="news-link">
-<div class="news-card">
-
-<img src="img/renovable.jpg" class="news-image">
-
-<div class="news-title">
-Energías renovables siguen creciendo
-</div>
-
-<div class="news-date">
-2025
-</div>
-
-<div class="news-preview">
-La transición energética avanza globalmente.
-</div>
+El acceso a tecnologías limpias ha mejorado, pero aún millones usan combustibles contaminantes.
 
 </div>
+
+<a href="noticia_cocina.html" class="btn">
+Leer noticia
 </a>
 
 </div>
-
-<!-- ARTICULOS -->
-
-<div class="category">
-
-<h2>Artículos</h2>
-
-<a href="articulo_energia.html" class="news-link">
-<div class="news-card">
-
-<img src="img/solar.jpg" class="news-image">
-
-<div class="news-title">
-Energía limpia: clave para salvar el planeta
 </div>
 
-<div class="news-date">
-Artículo especial
+<!-- NOTICIA 3 -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1">
+
+<div class="card-content">
+
+<div class="card-title">
+Energías renovables lideran crecimiento mundial
 </div>
 
-<div class="news-preview">
-Las energías renovables son fundamentales para el futuro.
+<div class="card-date">
+Informe ONU 2025
 </div>
 
+<div class="card-text">
+
+La energía solar y eólica crecen rápidamente, liderando la transición energética global.
+
 </div>
+
+<a href="noticia_informe_ods2025.html" class="btn">
+Leer noticia
 </a>
 
+</div>
+</div>
+
+<!-- NOTICIA 4 -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d">
+
+<div class="card-content">
+
+<div class="card-title">
+Financiamiento mundial impulsa energías limpias
+</div>
+
+<div class="card-date">
+Banco Mundial — 2025
+</div>
+
+<div class="card-text">
+
+Se invirtieron más de 21 mil millones de dólares en energías renovables.
+
+</div>
+
+<a href="noticia_financiamiento.html" class="btn">
+Leer noticia
+</a>
+
+</div>
+</div>
+
+<!-- NOTICIA 5 -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7">
+
+<div class="card-content">
+
+<div class="card-title">
+Transición energética es clave para el futuro
+</div>
+
+<div class="card-date">
+ONU Energía — 2025
+</div>
+
+<div class="card-text">
+
+Expertos destacan la necesidad urgente de acelerar la transición energética global.
+
+</div>
+
+<a href="noticia_progreso_energetico.html" class="btn">
+Leer noticia
+</a>
+
+</div>
 </div>
 
 </div>
 
 <footer>
 
-© 2026 EL ABISMO
+© 2026 EL ABISMO  
+Noticias sobre energía sostenible  
 
 </footer>
 
