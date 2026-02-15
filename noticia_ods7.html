@@ -2,27 +2,139 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>660 millones sin electricidad</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>660 millones sin electricidad | El Abismo</title>
 
 <style>
 
+/* ===== RESET ===== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI, Arial;
+}
+
 body{
-background:#0a0f1c;
+background:linear-gradient(180deg,#0a0f1c,#050814);
 color:white;
-font-family:Segoe UI;
-max-width:900px;
-margin:auto;
+line-height:1.6;
+}
+
+/* ===== HEADER ===== */
+
+header{
+background:#081427;
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:2px solid #4da6ff;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#4da6ff;
+}
+
+nav a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+}
+
+nav a:hover{
+color:#4da6ff;
+}
+
+/* ===== HERO IMAGE ===== */
+
+.hero{
+width:100%;
+height:400px;
+background:url("https://images.unsplash.com/photo-1509395176047-4a66953fd231") center/cover no-repeat;
+display:flex;
+align-items:flex-end;
 padding:40px;
 }
 
-img{
-width:100%;
+.hero h1{
+font-size:40px;
+background:rgba(0,0,0,0.6);
+padding:15px;
 border-radius:10px;
-margin:20px 0;
 }
 
-a{
+/* ===== CONTAINER ===== */
+
+.container{
+max-width:900px;
+margin:auto;
+padding:40px 20px;
+}
+
+/* ===== DATE ===== */
+
+.date{
 color:#4da6ff;
+margin-bottom:20px;
+font-size:16px;
+}
+
+/* ===== PARAGRAPH ===== */
+
+p{
+margin-bottom:20px;
+font-size:18px;
+color:#ddd;
+}
+
+/* ===== IMAGE INSIDE ===== */
+
+.content-img{
+width:100%;
+border-radius:10px;
+margin:30px 0;
+}
+
+/* ===== HIGHLIGHT BOX ===== */
+
+.highlight{
+background:#111a2e;
+padding:20px;
+border-left:5px solid #4da6ff;
+margin:30px 0;
+font-size:20px;
+}
+
+/* ===== BUTTON ===== */
+
+.btn{
+display:inline-block;
+margin-top:20px;
+background:#4da6ff;
+color:white;
+padding:12px 25px;
+text-decoration:none;
+border-radius:8px;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#3399ff;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+text-align:center;
+padding:30px;
+color:#777;
+border-top:1px solid #1e3a5f;
+margin-top:50px;
 }
 
 </style>
@@ -30,25 +142,101 @@ color:#4da6ff;
 </head>
 <body>
 
-<h1>Más de 660 millones de personas aún viven sin electricidad</h1>
+<header>
 
-<p><strong>ONU, 2025</strong></p>
+<div class="logo">
+EL ABISMO
+</div>
 
-<img src="img/energia.jpg">
+<nav>
+
+<a href="index.html">Inicio</a>
+<a href="noticias.html">Noticias</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>
+660 millones de personas aún viven sin electricidad
+</h1>
+
+</section>
+
+<div class="container">
+
+<div class="date">
+Publicado: ONU, Informe ODS 2025
+</div>
 
 <p>
-El Objetivo de Desarrollo Sostenible 7 busca garantizar energía asequible, segura y sostenible para todos antes de 2030.
+
+El acceso a la electricidad es un derecho fundamental para el desarrollo humano. Sin embargo, más de <b>660 millones de personas en el mundo aún viven sin electricidad</b>, según el Informe sobre los Objetivos de Desarrollo Sostenible 2025 de las Naciones Unidas.
+
 </p>
 
 <p>
-Sin embargo, actualmente más de 660 millones de personas aún viven sin acceso a electricidad, lo que afecta su calidad de vida, educación y desarrollo económico.
+
+La falta de energía afecta directamente la educación, la salud y la economía de millones de familias, especialmente en comunidades rurales y países en desarrollo.
+
+</p>
+
+<img class="content-img"
+src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e">
+
+<p>
+
+El acceso a la electricidad ha mejorado significativamente en las últimas décadas. En 2010, solo el 84% de la población mundial tenía acceso a electricidad. En 2023, esa cifra aumentó al 92%.
+
 </p>
 
 <p>
-Aunque las energías renovables están creciendo, el progreso sigue siendo insuficiente para alcanzar la meta establecida por la ONU.
+
+Sin embargo, el progreso es desigual. La mayoría de las personas sin electricidad viven en África subsahariana y zonas rurales aisladas.
+
 </p>
 
-<a href="noticias.html">← Volver</a>
+<div class="highlight">
+
+El Objetivo de Desarrollo Sostenible 7 busca garantizar energía asequible, sostenible y moderna para todos antes del año 2030.
+
+</div>
+
+<p>
+
+Las energías renovables, como la solar y la eólica, ofrecen una solución clave. Estas tecnologías permiten llevar electricidad a zonas remotas de forma más económica y sostenible.
+
+</p>
+
+<img class="content-img"
+src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1">
+
+<p>
+
+Expertos señalan que acelerar la transición hacia energías limpias es fundamental para cerrar esta brecha energética y combatir el cambio climático.
+
+</p>
+
+<p>
+
+Garantizar el acceso universal a la electricidad no solo mejora la calidad de vida, sino que también impulsa el desarrollo económico y social a nivel global.
+
+</p>
+
+<a href="noticias.html" class="btn">
+← Volver a Noticias
+</a>
+
+</div>
+
+<footer>
+
+© 2026 EL ABISMO  
+Periodismo de investigación energética  
+
+</footer>
 
 </body>
 </html>
