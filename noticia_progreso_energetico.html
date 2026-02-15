@@ -5,218 +5,288 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>COP28: transición energética | El Abismo</title>
 
-<!-- FUENTES -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
 <style>
-/* RESET */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Roboto', sans-serif;
+
+/* VARIABLES */
+
+:root{
+--bg:#0a0a12;
+--card:#15152b;
+--text:white;
+--accent:#ff7a00;
+--accent2:#8b5cf6;
 }
 
+.light{
+--bg:#f4f6fb;
+--card:white;
+--text:black;
+}
+
+/* BASE */
+
 body{
-  background:linear-gradient(180deg,#000,#020617);
-  color:white;
-  line-height:1.7;
+margin:0;
+font-family:Roboto;
+background:var(--bg);
+color:var(--text);
+transition:0.4s;
+overflow-x:hidden;
+}
+
+#particles{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(8px);
+border-bottom:1px solid var(--accent);
+}
+
+.logo{
+font-family:Montserrat;
+font-size:26px;
+color:var(--accent);
+}
+
+.toggle{
+background:linear-gradient(45deg,var(--accent),var(--accent2));
+border:none;
+padding:10px 20px;
+border-radius:10px;
+color:white;
+cursor:pointer;
 }
 
 /* HERO */
+
 .hero{
-  height:450px;
-  background:url("https://images.unsplash.com/photo-1558010360-3877f9d52868?auto=format&fit=crop&w=1400&q=80") center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+height:420px;
+background:url("https://images.unsplash.com/photo-1572362794678-b1cfe1f73b0a") center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
 }
 
 .hero h1{
-  background:rgba(0,0,0,0.8);
-  color:white;
-  padding:25px 40px;
-  font-family:'Montserrat', sans-serif;
-  font-size:34px;
-  border-radius:10px;
-  text-align:center;
-  opacity:0;
-  animation:fadeIn 1.5s forwards;
+background:rgba(0,0,0,0.75);
+padding:25px;
+border-radius:10px;
+animation:fadeIn 2s;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(40px);}
+to{opacity:1;}
 }
 
 /* CONTENT */
-.content{
-  max-width:1000px;
-  margin:auto;
-  padding:40px 20px;
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px 20px;
 }
 
-/* CARDS */
+/* CARD */
+
 .card{
-  background:#111a2e;
-  padding:25px;
-  margin:20px 0;
-  border-radius:10px;
-  transition:0.4s, transform 0.4s;
-  opacity:0;
-  transform:translateY(40px);
+background:var(--card);
+padding:30px;
+border-radius:15px;
+margin-bottom:30px;
+box-shadow:0 0 30px rgba(0,0,0,0.3);
+transition:0.4s;
+opacity:0;
+transform:translateY(40px);
 }
 
 .card.show{
-  opacity:1;
-  transform:translateY(0);
+opacity:1;
+transform:translateY(0);
 }
 
 .card:hover{
-  transform:translateY(-5px);
-  background:#1a2035;
-}
-
-.card h2{
-  color:#4da6ff;
-  margin-bottom:15px;
-}
-
-.card p, .card ul{
-  color:#ddd;
-  margin-bottom:10px;
-}
-
-.card ul{
-  padding-left:20px;
+transform:scale(1.02);
 }
 
 .card img{
-  width:100%;
-  border-radius:10px;
-  margin-top:15px;
-  transition:0.5s;
+width:100%;
+border-radius:12px;
+margin-top:15px;
+transition:0.4s;
+cursor:pointer;
 }
 
 .card img:hover{
-  transform:scale(1.05);
-  filter:brightness(1.1);
+transform:scale(1.05);
 }
 
-/* BOTÓN */
+/* COUNTER */
+
+.counter{
+font-size:45px;
+color:var(--accent);
+font-weight:bold;
+}
+
+/* BUTTON */
+
 .btn{
-  background:#4da6ff;
-  padding:12px 25px;
-  color:white;
-  text-decoration:none;
-  border-radius:8px;
-  font-weight:600;
-  display:inline-block;
-  margin:30px 0;
-  transition:0.3s;
-}
-
-.btn:hover{
-  background:#1b6ed6;
-  transform:translateY(-3px);
+display:inline-block;
+margin-top:30px;
+background:linear-gradient(45deg,var(--accent),var(--accent2));
+padding:15px 30px;
+border-radius:10px;
+color:white;
+text-decoration:none;
 }
 
 /* FOOTER */
+
 footer{
-  text-align:center;
-  padding:30px;
-  color:#777;
-  border-top:1px solid #1e3a5f;
-  margin-top:50px;
+text-align:center;
+padding:30px;
+border-top:1px solid var(--accent);
 }
 
-/* ANIMACIONES */
-@keyframes fadeIn{
-  to {opacity:1;}
-}
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>COP28: Hacia el abandono de los combustibles fósiles</h1>
-</div>
+<div id="particles"></div>
 
-<div class="content">
+<header>
+<div class="logo">EL ABISMO</div>
+<button class="toggle" onclick="toggleMode()">Modo claro / oscuro</button>
+</header>
 
-<!-- CARD 1 -->
+<section class="hero">
+<h1>COP28: Hacia el abandono de los combustibles fósiles</h1>
+</section>
+
+<div class="container">
+
 <div class="card">
-  <h2>Llamado histórico</h2>
-  <p>La COP28 en Dubai aprobó por primera vez una hoja de ruta para la "transición hacia el abandono de los combustibles fósiles". António Guterres enfatizó que <span style="color:#4da6ff;">la eliminación gradual de petróleo, carbón y gas es inevitable</span>.</p>
-  <img src="https://images.unsplash.com/photo-1572362794678-b1cfe1f73b0a?auto=format&fit=crop&w=1000&q=80" alt="COP28 Dubai">
+
+<h2>Compromisos financieros anunciados</h2>
+
+<div class="counter" id="counter">0</div>
+
+<p>
+Fondos comprometidos para clima y transición energética durante la COP28.
+</p>
+
+<img src="https://images.unsplash.com/photo-1509395134893-c70f39f4a9e5">
+
 </div>
 
-<!-- CARD 2 -->
+
 <div class="card">
-  <h2>Progresos en energías renovables</h2>
-  <p>Los compromisos incluyen:</p>
-  <ul>
-    <li>Triplicar la capacidad de energías renovables para 2030.</li>
-    <li>Duplicar la eficiencia energética a nivel global.</li>
-    <li>Fondos para adaptación y pérdidas y daños en países vulnerables.</li>
-  </ul>
-  <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1000&q=80" alt="Energías renovables">
+
+<h2>Meta: Triplicar renovables para 2030</h2>
+
+<canvas id="chart1"></canvas>
+
 </div>
 
-<!-- CARD 3 -->
+
 <div class="card">
-  <h2>Impacto en países vulnerables</h2>
-  <p>Muchos países enfrentan deudas y riesgos por el aumento del nivel del mar. La financiación debe aumentar para adaptación y recuperación de pérdidas, especialmente en <span style="color:#4da6ff;">PMA y PEID</span>.</p>
-  <img src="https://images.unsplash.com/photo-1525011268546-bf1d28c0623e?auto=format&fit=crop&w=1000&q=80" alt="Países vulnerables al clima">
+
+<h2>Transición energética global</h2>
+
+<p>
+La COP28 reconoció por primera vez la necesidad de abandonar progresivamente los combustibles fósiles.
+Se busca acelerar renovables, eficiencia energética y financiamiento climático.
+</p>
+
+<img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231">
+
 </div>
 
-<!-- CARD 4 -->
-<div class="card">
-  <h2>Resultados clave</h2>
-  <ul>
-    <li>Fondo para pérdidas y daños activo desde el primer día.</li>
-    <li>Compromisos de 3.500 millones USD para Fondo Verde para el Clima.</li>
-    <li>Más de 150 millones USD para PMA y FECC.</li>
-    <li>Banco Mundial: 9.000 millones USD anuales para proyectos climáticos (2024-2025).</li>
-    <li>Declaración sobre Clima y Salud respaldada por 120 países.</li>
-  </ul>
-  <img src="https://images.unsplash.com/photo-1509395134893-c70f39f4a9e5?auto=format&fit=crop&w=1000&q=80" alt="Resultados COP28">
-</div>
 
-<!-- CARD 5 -->
-<div class="card">
-  <h2>Próximos pasos</h2>
-  <ul>
-    <li>Contribuciones nacionales revisadas en 2025.</li>
-    <li>Azerbaiyán será anfitrión de la COP29.</li>
-    <li>Brasil se ofreció para COP30 en la Amazonia.</li>
-  </ul>
-  <img src="https://images.unsplash.com/photo-1554188248-986adbb73be3?auto=format&fit=crop&w=1000&q=80" alt="Próximos eventos climáticos">
-</div>
-
-<!-- BOTÓN VOLVER -->
 <a href="noticias.html" class="btn">← Volver a Noticias</a>
 
 </div>
 
 <footer>
-© 2026 EL ABISMO | Periodismo de investigación climática
+© 2026 EL ABISMO | Cobertura Climática Global
 </footer>
 
 <script>
-// Animación scroll
-const cards = document.querySelectorAll('.card');
-window.addEventListener('scroll', () => {
-  const scrollLimit = window.pageYOffset + window.innerHeight - 50;
-  cards.forEach(card => {
-    if(scrollLimit > card.offsetTop){
-      card.classList.add('show');
-    }
-  });
+
+/* PARTICLES */
+
+tsParticles.load("particles",{
+particles:{
+number:{value:70},
+color:{value:["#ff7a00","#8b5cf6"]},
+links:{enable:true,color:"#8b5cf6"},
+move:{enable:true,speed:1}
+}
 });
 
-window.addEventListener('load', () => {
-  cards.forEach(card => card.classList.add('show'));
+/* COUNTER */
+
+let count=0;
+let target=3500;
+
+let counter=setInterval(()=>{
+count+=20;
+document.getElementById("counter").innerText="$"+count+" M USD";
+if(count>=target) clearInterval(counter);
+},15);
+
+/* CHART */
+
+new Chart(document.getElementById("chart1"),{
+type:"bar",
+data:{
+labels:["2020","2025","2030"],
+datasets:[{
+label:"Capacidad renovable (índice)",
+data:[100,180,300],
+backgroundColor:"#ff7a00"
+}]
+}
 });
+
+/* SCROLL */
+
+let cards=document.querySelectorAll(".card");
+
+window.addEventListener("scroll",()=>{
+cards.forEach(card=>{
+if(card.getBoundingClientRect().top < window.innerHeight-50){
+card.classList.add("show");
+}
+});
+});
+
+/* MODE */
+
+function toggleMode(){
+document.body.classList.toggle("light");
+}
+
 </script>
 
 </body>
 </html>
-
