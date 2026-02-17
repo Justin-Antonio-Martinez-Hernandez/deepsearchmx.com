@@ -3,314 +3,454 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>El Abismo | Inicio</title>
+
+<title>El Abismo | Periodismo de investigación</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* ===== RESET ===== */
+/* ========================= */
+/* VARIABLES */
+/* ========================= */
+
+:root{
+
+--bg:#0a0f1c;
+--bg2:#0f2747;
+
+--accent:#4da6ff;
+--accent2:#00e0ff;
+
+--glass:rgba(255,255,255,0.05);
+
+--border:rgba(77,166,255,0.25);
+
+}
+
+/* ========================= */
+/* RESET */
+/* ========================= */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:"Segoe UI",Arial,sans-serif;
 }
 
 body{
-background:#0a0f1c;
+
+font-family:Inter;
+
+background:radial-gradient(circle at center,#0f2747,#0a0f1c);
+
 color:white;
+
 overflow-x:hidden;
+
+cursor:none;
+
 }
 
-/* ===== CANVAS BACKGROUND ===== */
+/* ========================= */
+/* CURSOR GLOW */
+/* ========================= */
+
+#cursor{
+
+position:fixed;
+width:20px;
+height:20px;
+border-radius:50%;
+background:radial-gradient(circle,var(--accent),transparent);
+pointer-events:none;
+z-index:9999;
+
+}
+
+/* ========================= */
+/* PARTICLES */
+/* ========================= */
 
 #particles{
+
 position:fixed;
 width:100%;
 height:100%;
-z-index:-3;
+z-index:-4;
+
 }
 
-/* ===== WAVE CANVAS ===== */
+/* ========================= */
+/* WAVE */
+/* ========================= */
 
-#waveCanvas{
+#wave1,#wave2,#wave3{
+
 position:fixed;
 bottom:0;
-left:0;
 width:100%;
 height:300px;
-z-index:-2;
-opacity:0.5;
+z-index:-3;
+
 }
 
-/* ===== INTRO ===== */
+#wave1{opacity:0.4;}
+#wave2{opacity:0.25;}
+#wave3{opacity:0.15;}
+
+/* ========================= */
+/* INTRO */
+/* ========================= */
 
 #intro{
+
 position:fixed;
+
 width:100%;
 height:100vh;
-background:linear-gradient(#0a0f1c,#0f2747);
+
+background:linear-gradient(var(--bg),var(--bg2));
+
 display:flex;
+
 justify-content:center;
 align-items:center;
 flex-direction:column;
-z-index:9999;
-overflow:hidden;
+
+z-index:999;
+
 }
 
-#water{
+#introWater{
+
 position:absolute;
+
 bottom:-100%;
+
 width:100%;
 height:200%;
-background:linear-gradient(
+
+background:
+
+linear-gradient(
 to top,
-rgba(0,119,255,0.8),
+rgba(0,119,255,0.9),
 rgba(77,166,255,0.4),
 transparent
 );
-animation:waterRise 4s ease-out forwards;
+
+animation:introWater 4s forwards;
+
 }
 
-@keyframes waterRise{
+@keyframes introWater{
 
-0%{
-bottom:-100%;
-}
-
-60%{
-bottom:0%;
-}
-
-100%{
-bottom:-20%;
-}
+0%{bottom:-100%;}
+60%{bottom:0;}
+100%{bottom:-20%;}
 
 }
 
 #logo{
-font-size:70px;
-font-weight:bold;
-color:#4da6ff;
-text-shadow:0 0 30px #0077ff;
-animation:glowPulse 2s infinite alternate;
+
+font-family:Montserrat;
+
+font-size:80px;
+
+font-weight:900;
+
+color:var(--accent);
+
+text-shadow:0 0 40px var(--accent);
+
+animation:glow 2s infinite alternate;
+
 z-index:2;
+
+}
+
+@keyframes glow{
+
+from{text-shadow:0 0 20px var(--accent);}
+to{text-shadow:0 0 60px var(--accent2);}
+
 }
 
 #slogan{
-margin-top:15px;
-font-size:22px;
-color:#cce6ff;
-opacity:0;
-animation:fadeIn 3s forwards 1s;
-z-index:2;
-}
 
-@keyframes glowPulse{
-from{text-shadow:0 0 10px #0077ff}
-to{text-shadow:0 0 40px #4da6ff}
+margin-top:20px;
+
+font-size:22px;
+
+opacity:0;
+
+animation:fadeIn 3s forwards 1s;
+
 }
 
 @keyframes fadeIn{
-to{opacity:1}
+
+to{opacity:1;}
+
 }
 
-/* ===== MAIN ===== */
+/* ========================= */
+/* MAIN */
+/* ========================= */
 
 #main{
+
 display:none;
-animation:fadeMain 1.5s;
+
 }
 
-@keyframes fadeMain{
-from{opacity:0}
-to{opacity:1}
-}
-
-/* ===== HEADER ===== */
+/* ========================= */
+/* HEADER */
+/* ========================= */
 
 header{
-background:rgba(10,20,40,0.7);
-backdrop-filter:blur(15px);
-padding:15px 40px;
+
+position:sticky;
+top:0;
+
+background:rgba(0,0,0,0.4);
+
+backdrop-filter:blur(20px);
+
+padding:20px 40px;
+
 display:flex;
 justify-content:space-between;
 align-items:center;
-border-bottom:1px solid #1e3a5f;
-position:sticky;
-top:0;
+
+border-bottom:1px solid var(--border);
+
 z-index:100;
+
 }
 
-.logo-header{
+.logoHeader{
+
 font-size:28px;
-font-weight:bold;
-color:#4da6ff;
-text-shadow:0 0 10px #0077ff;
-}
 
-/* ===== NAV ===== */
+font-family:Montserrat;
+
+color:var(--accent);
+
+}
 
 nav a{
-margin:0 15px;
+
+margin-left:25px;
+
 text-decoration:none;
+
 color:white;
-font-weight:500;
-transition:0.3s;
+
 position:relative;
+
 }
 
 nav a::after{
+
 content:"";
+
 position:absolute;
+
 width:0;
 height:2px;
-background:#4da6ff;
+
+background:var(--accent);
+
 left:0;
 bottom:-5px;
+
 transition:0.3s;
+
 }
 
 nav a:hover::after{
+
 width:100%;
+
 }
 
-nav a:hover{
-color:#4da6ff;
-}
-
-/* ===== HERO ===== */
+/* ========================= */
+/* HERO */
+/* ========================= */
 
 .hero{
-padding:120px 40px;
+
+padding:140px 20px;
+
 text-align:center;
-background:
-radial-gradient(circle at center,#13203a,#081426);
-position:relative;
+
 }
 
 .hero h1{
-font-size:48px;
-margin-bottom:20px;
-color:#4da6ff;
-animation:slideUp 1s;
+
+font-size:56px;
+
+font-family:Montserrat;
+
+background:linear-gradient(var(--accent),white);
+
+-webkit-background-clip:text;
+
+color:transparent;
+
 }
 
 .hero p{
-font-size:20px;
-color:#ccc;
-max-width:700px;
-margin:auto;
-line-height:1.6;
-animation:slideUp 1.5s;
-}
 
-@keyframes slideUp{
-from{
-opacity:0;
-transform:translateY(40px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
+max-width:700px;
+
+margin:auto;
+
+margin-top:20px;
+
+color:#ccc;
+
 }
 
 .hero button{
+
 margin-top:30px;
-padding:14px 30px;
-font-size:18px;
+
+padding:15px 30px;
+
+background:linear-gradient(var(--accent),var(--accent2));
+
 border:none;
-border-radius:10px;
-background:linear-gradient(45deg,#0077ff,#4da6ff);
+
+border-radius:12px;
+
 color:white;
+
+font-size:18px;
+
 cursor:pointer;
-transition:0.4s;
-box-shadow:0 0 20px #0077ff55;
+
+transition:0.3s;
+
 }
 
 .hero button:hover{
+
 transform:scale(1.1);
-box-shadow:0 0 30px #4da6ff;
+
 }
 
-/* ===== CARDS ===== */
+/* ========================= */
+/* STATS */
+/* ========================= */
+
+.stats{
+
+display:flex;
+
+justify-content:center;
+
+gap:60px;
+
+padding:80px 20px;
+
+}
+
+.stat{
+
+text-align:center;
+
+}
+
+.statNumber{
+
+font-size:48px;
+
+color:var(--accent);
+
+font-family:Montserrat;
+
+}
+
+.statLabel{
+
+color:#aaa;
+
+}
+
+/* ========================= */
+/* CARDS */
+/* ========================= */
 
 .cards{
+
 display:grid;
+
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-padding:60px 40px;
-max-width:1100px;
-margin:auto;
+
+gap:25px;
+
+padding:60px;
+
 }
 
 .card{
-background:#111a2e;
-padding:25px;
-border-radius:15px;
-transition:0.4s;
-border:1px solid transparent;
-opacity:0;
-transform:translateY(40px);
-}
 
-.card.show{
-opacity:1;
-transform:translateY(0);
+background:var(--glass);
+
+backdrop-filter:blur(20px);
+
+padding:25px;
+
+border-radius:15px;
+
+border:1px solid var(--border);
+
+transition:0.4s;
+
 }
 
 .card:hover{
+
 transform:translateY(-10px);
-border:1px solid #4da6ff;
-box-shadow:0 0 20px #0077ff55;
+
 }
 
-/* ===== SECTION ===== */
-
-.section{
-padding:60px 40px;
-max-width:900px;
-margin:auto;
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-}
-
-.section.show{
-opacity:1;
-transform:translateY(0);
-}
-
-/* ===== FOOTER ===== */
+/* ========================= */
+/* FOOTER */
+/* ========================= */
 
 footer{
-background:#050a14;
-padding:25px;
-text-align:center;
-color:#888;
-margin-top:50px;
-}
 
-footer span{
-color:#4da6ff;
+padding:30px;
+
+text-align:center;
+
+color:#777;
+
 }
 
 </style>
 </head>
-
 <body>
 
+<div id="cursor"></div>
+
 <canvas id="particles"></canvas>
-<canvas id="waveCanvas"></canvas>
+
+<canvas id="wave1"></canvas>
+<canvas id="wave2"></canvas>
+<canvas id="wave3"></canvas>
 
 <!-- INTRO -->
 
 <div id="intro">
 
-<div id="water"></div>
+<div id="introWater"></div>
 
-<div id="logo">El Abismo</div>
+<div id="logo">EL ABISMO</div>
 
 <div id="slogan">
 Buscamos profundamente para revelar la verdad
@@ -324,27 +464,56 @@ Buscamos profundamente para revelar la verdad
 
 <header>
 
-<div class="logo-header">El Abismo</div>
+<div class="logoHeader">
+EL ABISMO
+</div>
 
 <nav>
+
 <a href="index.html">Inicio</a>
+
 <a href="noticias.html">Noticias</a>
+
 <a href="contacto.html">Contacto</a>
+
 </nav>
 
 </header>
 
 <section class="hero">
 
-<h1>Periodismo que revela lo oculto</h1>
+<h1>
+Periodismo que revela la verdad
+</h1>
 
 <p>
-Investigamos profundamente cada hecho, analizamos cada dato y verificamos cada fuente.
+
+Investigación profunda basada en evidencia, datos y análisis profesional.
+
 </p>
 
-<button onclick="irNoticias()">
+<button onclick="location.href='noticias.html'">
 Explorar noticias
 </button>
+
+</section>
+
+<section class="stats">
+
+<div class="stat">
+<div class="statNumber" id="stat1">0</div>
+<div class="statLabel">Investigaciones</div>
+</div>
+
+<div class="stat">
+<div class="statNumber" id="stat2">0</div>
+<div class="statLabel">Fuentes verificadas</div>
+</div>
+
+<div class="stat">
+<div class="statNumber" id="stat3">0</div>
+<div class="statLabel">Lectores</div>
+</div>
 
 </section>
 
@@ -352,34 +521,24 @@ Explorar noticias
 
 <div class="card">
 <h3>Investigación profunda</h3>
-<p>Análisis exhaustivo global.</p>
+<p>Análisis avanzado.</p>
 </div>
 
 <div class="card">
-<h3>Fuentes verificadas</h3>
-<p>Datos confirmados oficialmente.</p>
+<h3>Fuentes reales</h3>
+<p>Información verificada.</p>
 </div>
 
 <div class="card">
-<h3>Transparencia total</h3>
-<p>Periodismo honesto.</p>
+<h3>Transparencia</h3>
+<p>Datos comprobables.</p>
 </div>
-
-</section>
-
-<section class="section">
-
-<h2>Sobre El Abismo</h2>
-
-<p>
-Plataforma dedicada al periodismo de investigación avanzado.
-</p>
 
 </section>
 
 <footer>
 
-© 2026 <span>El Abismo</span>
+© 2026 El Abismo
 
 </footer>
 
@@ -391,46 +550,23 @@ Plataforma dedicada al periodismo de investigación avanzado.
 
 setTimeout(()=>{
 
-intro.style.opacity="0";
-
-setTimeout(()=>{
-
 intro.style.display="none";
 main.style.display="block";
-
-},1000);
 
 },4000);
 
 
-/* BUTTON */
+/* CURSOR */
 
-function irNoticias(){
-location.href="noticias.html";
-}
+document.addEventListener("mousemove",e=>{
 
-
-/* SCROLL ANIMATION */
-
-const observer=new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("show");
-
-}
+cursor.style.left=e.clientX+"px";
+cursor.style.top=e.clientY+"px";
 
 });
 
-});
 
-document.querySelectorAll(".card,.section")
-.forEach(el=>observer.observe(el));
-
-
-/* PARTICLES OPTIMIZED */
+/* PARTICLES */
 
 const canvas=document.getElementById("particles");
 const ctx=canvas.getContext("2d");
@@ -440,16 +576,13 @@ canvas.height=innerHeight;
 
 let particles=[];
 
-let count=innerWidth<768?30:80;
-
-for(let i=0;i<count;i++){
+for(let i=0;i<80;i++){
 
 particles.push({
 
 x:Math.random()*canvas.width,
 y:Math.random()*canvas.height,
-size:Math.random()*2,
-speed:Math.random()*0.3
+speed:Math.random()*0.5
 
 });
 
@@ -467,7 +600,7 @@ p.y+=p.speed;
 
 if(p.y>canvas.height)p.y=0;
 
-ctx.fillRect(p.x,p.y,p.size,p.size);
+ctx.fillRect(p.x,p.y,2,2);
 
 });
 
@@ -477,59 +610,81 @@ requestAnimationFrame(animateParticles);
 
 animateParticles();
 
+/* WAVE */
 
-/* WAVE ANIMATION */
+function createWave(canvasId,speed,amp){
 
-const waveCanvas=document.getElementById("waveCanvas");
-const waveCtx=waveCanvas.getContext("2d");
+const canvas=document.getElementById(canvasId);
 
-waveCanvas.width=innerWidth;
-waveCanvas.height=300;
+const ctx=canvas.getContext("2d");
+
+canvas.width=innerWidth;
+canvas.height=300;
 
 let offset=0;
 
-function animateWave(){
+function animate(){
 
-waveCtx.clearRect(0,0,waveCanvas.width,waveCanvas.height);
+ctx.clearRect(0,0,canvas.width,canvas.height);
 
-waveCtx.beginPath();
+ctx.beginPath();
 
-for(let x=0;x<waveCanvas.width;x++){
+for(let x=0;x<canvas.width;x++){
 
-let y=
-Math.sin((x+offset)*0.01)*20
-+100
-+scrollY*0.1;
+let y=Math.sin((x+offset)*0.01)*amp+150+scrollY*0.2;
 
-waveCtx.lineTo(x,y);
+ctx.lineTo(x,y);
 
 }
 
-waveCtx.lineTo(waveCanvas.width,300);
-waveCtx.lineTo(0,300);
+ctx.lineTo(canvas.width,300);
+ctx.lineTo(0,300);
 
-waveCtx.fillStyle="rgba(77,166,255,0.3)";
-waveCtx.fill();
+ctx.fillStyle="rgba(77,166,255,0.3)";
 
-offset+=2;
+ctx.fill();
 
-requestAnimationFrame(animateWave);
+offset+=speed;
+
+requestAnimationFrame(animate);
 
 }
 
-animateWave();
+animate();
+
+}
+
+createWave("wave1",2,20);
+createWave("wave2",1.5,30);
+createWave("wave3",1,40);
 
 
-/* RESIZE */
+/* STATS */
 
-addEventListener("resize",()=>{
+function animateStat(id,target){
 
-canvas.width=innerWidth;
-canvas.height=innerHeight;
+let num=0;
 
-waveCanvas.width=innerWidth;
+let interval=setInterval(()=>{
 
-});
+num+=Math.ceil(target/100);
+
+if(num>=target){
+
+num=target;
+clearInterval(interval);
+
+}
+
+document.getElementById(id).innerText=num;
+
+},20);
+
+}
+
+animateStat("stat1",128);
+animateStat("stat2",342);
+animateStat("stat3",12000);
 
 </script>
 
